@@ -113,8 +113,8 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt
 ```
 ##### Install Kubernetes components
 ```
-sudo apt update 
-sudo apt -y install vim git curl wget kubelet kubeadm kubectl
+sudo apt update -y && sudo apt -y install kubelet kubeadm kubectl
+
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 ##### Confirm installation
@@ -123,9 +123,13 @@ kubectl version --client && kubeadm version
 ```
 
 ## On Controlplane Node
+
+##### Checking location of container runtime socket
+![container runtime socket](cri_socket_path.png)
+
 ##### Initialize Kubernetes Cluster
 ```
-kubeadm init --apiserver-advertise-address=172.16.16.100 --pod-network-cidr=192.168.0.0/16
+kubeadm init --apiserver-advertise-address=172.16.16.100 --pod-network-cidr=192.168.0.0/16 --cri-socket
 ```
 ##### To be able to run kubectl commands as non-root user
 If you want to be able to run kubectl commands as non-root user, then as a non-root user perform these
