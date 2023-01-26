@@ -75,10 +75,11 @@ Reload sysctl
 sudo sysctl --system
 ```
 
-##### Install docker engine
+### Install docker engine
 In this guide I will install docker package and containerd.io as my runtime. You could install other container runtime if you like. However, to run containers in Pods, Kubernetes supported container runtimes are:
+
 | Runtime |	Path to Unix domain socket |
-| --- | --- | --- |
+| --- | --- |
 | Containerd | unix:///run/containerd/containerd.sock |
 | CRI-O |	unix:///var/run/crio/crio.sock  |
 | Docker Engine |	unix:///run/cri-dockerd.sock |
