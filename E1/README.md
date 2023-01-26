@@ -129,8 +129,9 @@ kubectl version --client && kubeadm version
 
 ##### Initialize Kubernetes Cluster
 ```
-kubeadm init --pod-network-cidr=10.138.16.0/16 --service-cidr string=10.138.32.0/16 --cri-socket=unix:///run/containerd/containerd.sock
+sudo kubeadm init --pod-network-cidr=10.138.16.0/16 --service-cidr=10.138.32.0/16 --cri-socket=unix:///run/containerd/containerd.sock
 ```
+
 ##### To be able to run kubectl commands as non-root user
 If you want to be able to run kubectl commands as non-root user, then as a non-root user perform these
 ```
@@ -141,11 +142,20 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 ##### Deploy Calico network
 ```
-kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+kubectl create -f https://docs.projectcalico.org/manifests/calico-typha.yaml
 ```
 ##### Cluster join command
 ```
 kubeadm token create --print-join-command
+```
+
+The output would generate a command for worker node join k8s cluster like example below. Copy that command and execute on worker node.
+![join-cluster-command](join_cluster_command.png)
+
+##### NOTE [Optional] 
+If you experience where kubeadm could not find to cri path you could add "--cri-socket" flags manually like we have done on controlplane node when we initialize kubeadm.
+```
+sudo kubeadm join 10.138.0.9:6443 --token h589k6.078s0su5k32boq6f --discovery-token-ca-cert-hash sha256:05c4b5b144e6d58c7b08cacb815b47a88c053c94fa22e6270e5eedef07fcd796 --cri-socket="unix:///run/containerd/containerd.sock"
 ```
 
 ## On Worker Node
