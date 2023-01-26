@@ -129,7 +129,7 @@ kubectl version --client && kubeadm version
 
 ##### Initialize Kubernetes Cluster
 ```
-kubeadm init --apiserver-advertise-address=172.16.16.100 --pod-network-cidr=192.168.0.0/16 --cri-socket
+kubeadm init --pod-network-cidr=10.138.16.0/16 --service-cidr string=10.138.32.0/16 --cri-socket=unix:///run/containerd/containerd.sock
 ```
 ##### To be able to run kubectl commands as non-root user
 If you want to be able to run kubectl commands as non-root user, then as a non-root user perform these
