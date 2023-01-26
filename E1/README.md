@@ -85,11 +85,17 @@ In this guide I will install docker package and containerd.io as my runtime. You
 | Docker Engine |	unix:///run/cri-dockerd.sock |
 | Mirantis Container Runtime |	Check the systemd unit named cri-docker.socket to find out the path to the CRI socket  |
 
+
+##### Add docker repository
 ```
 sudo apt update
 sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+
+##### Install docker
+```
 sudo apt update
 sudo apt install -y containerd.io docker-ce docker-ce-cli
 
