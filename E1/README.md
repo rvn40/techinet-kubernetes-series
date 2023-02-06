@@ -88,20 +88,16 @@ In this guide I will install docker package and containerd.io as my runtime. You
 
 ##### Add docker repository
 ```
-sudo apt update
-sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
+sudo apt update -y && sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
 
 ##### Install docker
 ```
-sudo apt update
-sudo apt install -y containerd.io docker-ce docker-ce-cli
+sudo apt update -y && sudo apt install -y containerd.io docker-ce docker-ce-cli
 
-sudo systemctl daemon-reload 
-sudo systemctl restart docker
-sudo systemctl enable docker
+sudo systemctl daemon-reload && sudo systemctl restart docker && sudo systemctl enable docker
 ```
 
 ### KubeAdm Setup
@@ -119,7 +115,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 ##### Confirm installation
 ```
-kubectl version --client && kubeadm version
+kubectl version --short --output=yaml && kubeadm version
 ```
 
 ## On Controlplane Node
