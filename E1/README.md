@@ -129,7 +129,7 @@ kubectl version --client && kubeadm version
 
 ##### Initialize Kubernetes Cluster
 ```
-sudo kubeadm init --pod-network-cidr=10.138.16.0/16 --service-cidr=10.138.32.0/16 --cri-socket=unix:///run/containerd/containerd.sock
+sudo kubeadm init --pod-network-cidr=10.138.16.0/16 --service-cidr=10.138.32.0/16 --control-plane-endpoint="<your-endpoint-ip-or-dns>:<port>"--cri-socket=unix:///run/containerd/containerd.sock
 ```
 
 ##### To be able to run kubectl commands as non-root user
