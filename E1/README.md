@@ -90,13 +90,18 @@ In this guide I will install docker package and containerd.io as my runtime. You
 ```
 sudo apt update -y && sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+```
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
 
 ##### Install docker
 ```
 sudo apt update -y && sudo apt install -y containerd.io docker-ce docker-ce-cli
+```
 
+```
 sudo systemctl daemon-reload && sudo systemctl restart docker && sudo systemctl enable docker
 ```
 
@@ -105,12 +110,17 @@ sudo systemctl daemon-reload && sudo systemctl restart docker && sudo systemctl 
 Once the servers are rebooted, add Kubernetes repository for Ubuntu 20.04 to each servers.
 ```
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+```
+
+```
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
 ##### Install Kubernetes components
 ```
 sudo apt update -y && sudo apt -y install kubelet kubeadm kubectl
+```
 
+```
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 ##### Confirm installation
@@ -132,9 +142,14 @@ sudo kubeadm init --pod-network-cidr=10.138.16.0/16 --service-cidr=10.138.32.0/1
 If you want to be able to run kubectl commands as non-root user, then as a non-root user perform these
 ```
 mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
 
+```
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+```
+
+```
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 ##### Deploy Calico network
 ```
