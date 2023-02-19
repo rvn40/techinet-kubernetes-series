@@ -25,6 +25,10 @@ The minimums:
 ## Instructions
 Perform all of these commands on each machines. Run as root otherwise specified.
 
+For instruction in video format:
+
+[![Setup Kubernetes Cluster with kubeAdm on Ubuntu](https://i.ytimg.com/vi/jNFAvZOZSGc/hqdefault.jpg)](https://www.youtube.com/embed/jNFAvZOZSGc)
+
 ##### Update the OS
 Once the servers are ready, update them first.
 ```
@@ -52,13 +56,19 @@ To disable Linux swap space permanently go to '/etc/fstab'. Search for a swap li
 If you can't find that line on fstab file it means your system does not use swap already. Now, confirm setting is correct.
 ```
 sudo swapoff -a
+```
+```
 sudo mount -a
+```
+```
 free -h
 ```
 
 ### Enable kernel modules
 ```
 sudo modprobe overlay
+```
+```
 sudo modprobe br_netfilter
 ```
 
