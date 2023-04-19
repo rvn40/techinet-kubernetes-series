@@ -1,4 +1,4 @@
-# Setup Kubernetes Cluster with kubeAdm on Ubuntu
+# Setup Kubernetes Cluster with minikube on Ubuntu
 
 ## Prerequisite
 
@@ -8,11 +8,10 @@
 | minikube-01  |	16GB Ram, 4vcpus |
 
 ## Instructions
-Perform all of these commands on each machines. Run as root otherwise specified.
 
 For instruction in video format:
 
-[![Setup Kubernetes Cluster with kubeAdm on Ubuntu](https://i.ytimg.com/vi/jNFAvZOZSGc/hqdefault.jpg)](https://www.youtube.com/embed/jNFAvZOZSGc)
+[![Setup Kubernetes Cluster with minikube on Ubuntu](https://i.ytimg.com/vi/jNFAvZOZSGc/hqdefault.jpg)](https://www.youtube.com/embed/jNFAvZOZSGc)
 
 #### Update your system
 Once the servers are ready, update them first.
