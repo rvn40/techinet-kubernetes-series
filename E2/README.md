@@ -19,13 +19,16 @@ Once the servers are ready, update them first.
 sudo apt -y full-upgrade && sudo reboot
 ```
 
-##### Install dependencies
+#### Install dependencies
 ```
 sudo apt install curl vim -y
 ```
 ##### Add docker repository
 ```
 sudo apt update -y && sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
+```
+
+```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
@@ -42,10 +45,20 @@ sudo apt update -y && sudo apt install -y containerd.io docker-ce docker-ce-cli
 sudo systemctl daemon-reload && sudo systemctl restart docker && sudo systemctl enable docker
 ```
 
+##### Enable Non-Root User Access
+```
+sudo usermod -aG docker $USER
+```
+
+```
+sudo reboot
+```
+
 #### Download and install Minikube
 ```
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-
+```
+```
 sudo install minikube /usr/local/bin/
 ```
 
@@ -65,6 +78,29 @@ minikube status
 ```
 
 You should now have Minikube up and running on your Ubuntu machine. You can start deploying and testing Kubernetes applications locally using Minikube.
+
+#### Downloads kubectl with curl on Linux
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+```
+
+#### Validate the binary (optional)
+```
+curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+```
+```
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+```
+
+#### Install kubectl
+```
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+
+#### Test to ensure the version you installed is up-to-date:
+```
+kubectl version --client
+```
 
 
 ### Deploy nginx webserver on minikube
