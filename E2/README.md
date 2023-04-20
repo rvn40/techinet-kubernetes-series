@@ -9,10 +9,6 @@
 
 ## Instructions
 
-For instruction in video format:
-
-[![Setup Kubernetes Cluster with minikube on Ubuntu](https://i.ytimg.com/vi/jNFAvZOZSGc/hqdefault.jpg)](https://www.youtube.com/embed/jNFAvZOZSGc)
-
 #### Update your system
 Once the servers are ready, update them first.
 ```
