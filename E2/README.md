@@ -11,7 +11,7 @@
 
 For instruction in video format:
 
-[<img src="https://storage.googleapis.com/techinet-public/youtube/thumbnails/KubeSeries/E2.png" width="560" height="315">](https://www.youtube.com/embed/_qXfWa476Ik)
+[<img src="https://storage.googleapis.com/techinet-public/youtube/thumbnails/KubeSeries/E2/thumbnail.png" width="560" height="315">](https://www.youtube.com/embed/_qXfWa476Ik)
 
 #### Update your system
 Once the servers are ready, update them first.
