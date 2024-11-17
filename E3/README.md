@@ -1,4 +1,4 @@
-# Setup Kubernetes Cluster with minikube on Ubuntu
+# Setup Kubernetes Cluster with Minikube on Ubuntu
 
 ## Prerequisite
 
